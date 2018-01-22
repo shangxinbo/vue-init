@@ -1,3 +1,5 @@
+src/router/index.js
+src/assets/**/*.js
 /build/
 /config/
 /dist/

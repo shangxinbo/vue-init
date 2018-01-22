@@ -25,7 +25,7 @@ module.exports = {
   {{#if_eq lintConfig "none"}}
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
   // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential'],
+  extends: ['plugin:vue/essential','eslint:recommended'],
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
@@ -67,6 +67,15 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']
     }],
+    {{/if_eq}}
+    {{#if_eq lintConfig "none"}}
+    'no-implied-eval': 1,
+    'no-loop-func': 1,
+    'indent': ["warn", 4, { "SwitchCase": 1 }],
+    'no-mixed-spaces-and-tabs': 1,
+    'semi': ["error", "never"],
+    'no-console':0,
+    'no-unused-vars':0,
     {{/if_eq}}
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'

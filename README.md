@@ -1,13 +1,7 @@
-# vue-webpack-boilerplate
+# vue-init
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
-
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
-
-## Documentation
-
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
-- [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
+> This respository is a fork from [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack). You may want an official template there. 
+> This template is Vue 2.0 compatible only.
 
 ## Usage
 
@@ -15,11 +9,12 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init shangxinbo/vue-init my-project
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
+If port 8080 is already in use on your machine you must change the port number in `/config/index.js`. Otherwise `npm run dev` will fail.
 
 This will scaffold the project using the `master` branch. If you wish to use the latest version of the webpack template, do the following instead:
 
@@ -31,6 +26,19 @@ $ vue init webpack#develop my-project
 
 The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
 
+## Docs And Features
+
+you may want to read docs [here](http://vuejs-templates.github.io/webpack/) because this template is exactly the same with vuejs-temlates/webpack. __except that:__
+
+* Add a mock server by express for data-mock (look in dirs named api and proxy). When `npm run dev`, it will start in a child process.
+* Use [mockjs](https://github.com/nuysoft/Mock/tree/refactoring) to mock random data 
+* Add `less-loader` and `less` 
+* Add [vuex](https://github.com/vuejs/vuex) for vue 
+* Add [vue-resource](https://github.com/pagekit/vue-resource) for ajax
+* Change editerconfig `indent_size = 4` 
+* Change eslint pick preset `none (eslint:recommended and config yourself)`. Detail in '.eslintrc.js'
+* Add src/router/index.js to eslintignore, beacause webpack2.0 use 'System.import' which is error for eslint 
+
 ## What's Included
 
 - `npm run dev`: first-in-class development experience.
@@ -39,6 +47,10 @@ The development server will run on port 8080 by default. If that port is already
   - State preserving compilation error overlay
   - Lint-on-save with ESLint
   - Source maps
+
+- `npm run proxy`: proxy request and response to integrate real restfull.
+  - change mock server to proxy real restful.
+  - proxy URL and PORT config in `config/dev.env.js`
 
 - `npm run build`: Production ready build.
   - JavaScript minified with [UglifyJS v3](https://github.com/mishoo/UglifyJS2/tree/harmony).
@@ -64,3 +76,15 @@ You can fork this repo to create your own boilerplate, and use it with `vue-cli`
 ``` bash
 vue init username/repo my-project
 ```
+
+### remarks
+``` bash
+$ git remote 
+  origin
+$ git remote add https://github.com/vuejs-templates/webpack.git
+$ git remote 
+  office
+  origin
+$ git fetch office
+$ git pull office master
+$ 解决冲突并提交

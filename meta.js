@@ -95,7 +95,7 @@ module.exports = {
           short: 'Airbnb',
         },
         {
-          name: 'none (configure it yourself)',
+          name: 'none (eslint:recommended and config yourself)',
           value: 'none',
           short: 'none',
         },

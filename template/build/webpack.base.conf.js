@@ -22,6 +22,7 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
+    polyfill:'babel-polyfill',
     app: './src/main.js'
   },
   output: {
@@ -38,6 +39,9 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
       '@': resolve('src'),
+      'src': resolve('src'),
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components')
     }
   },
   module: {

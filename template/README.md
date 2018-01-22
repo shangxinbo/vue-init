@@ -11,6 +11,9 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
+# serve with proxy to use data from restful
+npm run proxy
+
 # build for production with minification
 npm run build
 
